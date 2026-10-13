@@ -1,0 +1,6 @@
+{
+  "name": "AERIS Safety LMS",
+  "description": "Safety Training and Compliance LMS for Dubai Logistics - Kinetic Precision Admin & Supervisor Experience",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

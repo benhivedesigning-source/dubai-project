@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #F4F7F8;
+    --text-primary: #111C28;
+    --brand-teal: #007F82;
+    --brand-mint: #79E8CE;
+    --brand-sky: #659BFF;
+    --brand-amber: #D99824;
+    --brand-critical: #D74757;
+  }
+
+  body {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.font-arabic, .font-arabic {
+    font-family: 'Noto Sans Arabic', 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: normal;
+    line-height: 1.6;
+  }
+}
+
+/* Tabular numerals for precision metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F7F8;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Kinetic route animations */
+@keyframes kineticDash {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+}
+
+.animate-route-flow {
+  stroke-dasharray: 8 6;
+  animation: kineticDash 24s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) rotate(2.5deg) scale(1.02);
+  }
+}
+
+@keyframes floatSlowReverse {
+  0%, 100% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(16px) scale(1.06) rotate(-2deg);
+  }
+}
+
+@keyframes orbitCircle {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.03);
+  }
+  66% {
+    transform: translate(-10px, 14px) scale(0.98);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes pulseCircle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.animate-float-slow-reverse {
+  animation: floatSlowReverse 15s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbitCircle 18s ease-in-out infinite;
+}
+
+.animate-pulse-circle {
+  animation: pulseCircle 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Industrial floor marking hazard stripes */
+.hazard-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #111C28,
+    #111C28 8px,
+    #E2E8F0 8px,
+    #E2E8F0 16px
+  );
+}
+
+.hazard-stripes-teal {
+  background: repeating-linear-gradient(
+    -45deg,
+    #007F82,
+    #007F82 8px,
+    #E2E8F0 8px,
+    #E2E8F0 16px
+  );
+}
+
+/* Print styles for Reports */
+@media print {
+  aside, header, nav, .no-print, button:not(.print-include) {
+    display: none !important;
+  }
+  body, main {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .print-card {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}
